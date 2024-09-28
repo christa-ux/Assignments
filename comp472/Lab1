@@ -1,1 +1,78 @@
+import random
+class GridEnvironment:
+    def __init__(self, grid_size):
+        self.grid_size = grid_size
+
+        # Randomly set each room as dirty (1) or clean (0)
+        self.grid = [[random.choice([0, 1]) for _ in range(grid_size)] for _ in range(grid_size)]
+        
+        # start at top-left corner
+        self.agent_position = [0, 0]
+    
+    # Display the grid and agent's position
+    def display(self):
+        for row in range(self.grid_size):
+            line = ""
+            for col in range(self.grid_size):
+                if [row, col] == self.agent_position:
+                    line += "A "  # A stands for agent
+                else:
+                    line += f"{self.grid[row][col]} "
+            print(line)
+        print("\n")
+
+
+class VacuumCleanerAgent:
+    def __init__(self, environment):
+        self.environment = environment
+    
+    # "Suck" to clean room
+    def suck(self):
+        row, col = self.environment.agent_position
+        if self.environment.grid[row][col] == 1:  # If the room is dirty
+            self.environment.grid[row][col] = 0  # Clean it (set to 0)
+            print(f"Room at {row}, {col} cleaned!")
+    
+    
+    def move(self, direction):
+        row, col = self.environment.agent_position
+        if direction == "left" and col > 0:
+            self.environment.agent_position = [row, col - 1]
+        elif direction == "right" and col < self.environment.grid_size - 1:
+            self.environment.agent_position = [row, col + 1]
+        elif direction == "up" and row > 0:
+            self.environment.agent_position = [row - 1, col]
+        elif direction == "down" and row < self.environment.grid_size - 1:
+            self.environment.agent_position = [row + 1, col]
+        print(f"Agent moved {direction} to position {self.environment.agent_position}")
+    
+    # Check if all rooms are clean
+    def all_clean(self):
+        for row in self.environment.grid:
+            if 1 in row:  
+                return False
+        return True
+
+
+def run_simulation(grid_size):
+    environment = GridEnvironment(grid_size)
+    agent = VacuumCleanerAgent(environment)
+    
+    
+    print("Initial environment:")
+    environment.display()
+    
+    moves = ["left", "right", "up", "down"]
+    
+   
+    while not agent.all_clean():
+        
+        agent.suck()
+        agent.move(random.choice(moves))
+        environment.display()
+    
+    print("All rooms are clean!")
+
+
+run_simulation(4)  
 
