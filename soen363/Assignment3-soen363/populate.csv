@@ -1,0 +1,53 @@
+//actor cypher 
+LOAD CSV WITH HEADERS FROM 'file:///Actor.csv' AS row
+CREATE (a:Actor {
+    first_name: SPLIT(row.name, ' ')[0],
+    last_name: SPLIT(row.name, ' ')[1]
+});
+
+
+//country cypher
+LOAD CSV WITH HEADERS FROM 'file:///Country.csv' AS row
+CREATE (:Country {
+    code: row.countryCode,
+    name: row.countryName
+});
+
+
+//keyword cypher
+LOAD CSV WITH HEADERS FROM 'file:///Keyword.csv' AS row
+CREATE (:Keyword {
+    id: toInteger(row.kID),
+    keyword: row.keyword
+});
+
+
+//movie cypher
+LOAD CSV WITH HEADERS FROM 'file:///Movie.csv' AS row
+CREATE (m:Movie {
+    title: row.title,
+    plot: row.plot,  
+    content_Rating: row.content_Rating,
+    viewerRating: toFloat(row.viewerRating),
+    release_year: toInteger(row.releaseYear),
+    original_language: row.original_language,
+    genres: SPLIT(row.genres, '|'),
+    languages: SPLIT(row.languages, '|'), 
+    aka_titles: SPLIT(row.aka_titles, '|'), 
+    watchmode_id: CASE WHEN row.watchmode_id IS NOT NULL THEN toInteger(row.watchmode_id) ELSE NULL END
+})
+
+// Movie-Keyword Cypher
+LOAD CSV WITH HEADERS FROM 'file:///Moviekeyword.csv' AS row
+MATCH (m:Movie {mID: toInteger(row.movieid)}), (k:Keyword {keywordid: toInteger(row.keywordid)})
+MERGE (m)-[:HAS_KEYWORD]->(k);
+
+// Movie-Actor Cypher
+LOAD CSV WITH HEADERS FROM 'file:///Movieactor.csv' AS row
+MATCH (m:Movie {id: toInteger(row.movieid)}), (a:Actor {id: toInteger(row.actorid)})
+CREATE (a)-[:ACTED_IN]->(m);
+
+// Movie-Country Cypher
+LOAD CSV WITH HEADERS FROM 'file:///Moviecountry.csv' AS row
+MATCH (m:Movie {id: toInteger(row.movieid)}), (c:Country {code: row.countrycode})
+CREATE (m)-[:FILMED_IN]->(c);
