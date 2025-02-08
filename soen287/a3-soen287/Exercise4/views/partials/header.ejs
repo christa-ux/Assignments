@@ -1,0 +1,29 @@
+<header>
+    <div>Adopt A-Cat/Dog</div>
+    <div>
+      <a href="/">
+          <img src="/images/logo.png" height="50" class="logo" alt="logo">
+      </a>
+    </div>
+    <div class="date-time" id="date-time"></div>
+    <!-- <div class="date-time" id="date-time"></div> -->
+  
+    <div class="date-time" id="date-time"></div>
+    <% if (session.loggedIn) { %>
+      <form action="/logout" method="post" style="display: inline;">
+        <button type="submit">Logout</button>
+      </form>
+    <% } %>
+    
+  </header>
+  <script>
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+        document.getElementById('date-time').innerText = dateTimeString;
+    }
+  
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+  

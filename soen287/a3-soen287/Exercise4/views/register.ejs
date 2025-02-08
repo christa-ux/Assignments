@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <script>
+    // Function to validate username and password
+    function validateForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const usernameRegex = /^[a-zA-Z0-9]+$/;
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
+
+      // Check if the username contains only letters and digits
+      if (!usernameRegex.test(username)) {
+        alert('Username can contain letters (both upper and lower case) and digits only.');
+        return false;
+      }
+
+      // Check if the password is at least 4 characters long, contains at least one letter, and at least one digit
+      if (!passwordRegex.test(password)) {
+        alert('Password must be at least 4 characters long, contain at least one letter and one digit.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <div class="container side-menu">
+    <!--Side menu-->
+    <ul>
+        <li><a href="/">Home Page</a></li>
+        <!-- <li><a href="/pets">Browse Available Pets</a></li> -->
+        <li><a href="/find">Find a dog/cat</a></li>
+        <li><a href="/dogcare">Dog Care</a></li>
+        <li><a href="/catcare">Cat Care</a></li>
+        <li><a href="/giveaway">Have a pet to give away</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/register" class="active">Create an account</a></li>
+      </ul>
+    <!--Content Area-->
+    
+    <div id="home" class="content-area">
+        <h2 style=" margin: 15px; padding: 10px;">Register </h2> 
+        <% if (typeof error !== 'undefined') { %>
+            <p style="color: red;"><%= error %></p>
+          <% } %>
+      
+          <!-- Display success message -->
+          <% if (typeof success !== 'undefined') { %>
+            <p style="color: green;"><%= success %></p>
+          <% } %>
+        <div class="container" style="border:2px solid black; margin: 30px; padding: 10px;">
+            
+    <form action="/register" method="post" onsubmit="return validateForm();">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" value="Register">
+      <p>Already have an account? <a href="/login">Login</a>.</p>
+    </form> 
+    </div>
+    </div>
+    </div>
+
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

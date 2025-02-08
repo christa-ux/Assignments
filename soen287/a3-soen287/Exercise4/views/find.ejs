@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/find8.css">
+    <title>Find a dog/cat</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container side-menu">
+        <ul>
+            <li><a href="/">Home Page</a></li>
+            <li><a class="active" href="/find">Find a dog/cat</a></li>
+            <li><a href="/dogcare">Dog Care</a></li>
+            <li><a href="/catcare">Cat Care</a></li>
+            <li><a href="/giveaway">Have a pet to give away</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/register">Create an account</a></li>
+        </ul>
+        <div id="home" class="content-area">
+            <h2>Please Fill out the form to understand what you're looking for!</h2>
+            <div class="container" style="margin:30px;">
+            <form id="adoptionForm" action="/find" method="post">
+                <fieldset>
+                    <legend>Form for dog and cat adoption</legend>
+                    <div class="container">
+                        <label for="animalType">Animal Type:</label>
+                        <select id="animalType" name="animalType">
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                        </select>
+                        </div>
+                        <label for="breed">Choose a breed:</label>
+                        <select id="breed" name="breed">
+                            <!-- Dog breeds -->
+                            <option value="poodle">Poodle</option>
+                            <option value="rottweiler">Rottweiler</option>
+                            <option value="labrador">Labrador</option>
+                            <option value="husky">Husky</option>
+                            <option value="bulldog">Bulldog</option>
+                            <option value="german">German Shepherd</option>
+                            <option value="beagle">Beagle</option>
+                            <!-- Cat breeds -->
+                            <option value="ragdoll">Ragdoll</option>
+                            <option value="persian">Persian</option>
+                            <option value="shorthair">Shorthair</option>
+                            <option value="abyssinian">Abyssinian</option>
+                            <option value="siberian">Siberian</option>
+                            <option value="sphynx">Sphynx</option>
+                            <option value="bengal">Bengal</option>
+                            <option value="noMatter">Does not matter</option>
+                        </select>
+                        <br><br>
+                        <label for="age">Choose the age:</label>
+                        <select id="age" name="age">
+                            <option value="less">Less than 3 years old</option>
+                            <option value="between">Between 3 years old and 8 years old</option>
+                            <option value="more">More than 8 years old</option>
+                            <option value="noMatter">Does not matter</option>
+                        </select>
+                        <br><br>
+                        <label for="gender">Choose the gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="noMatter">Does not matter</option>
+                        </select>
+                        <br>
+                        <p>Select with whom it needs to get along:</p>
+                        <input type="checkbox" id="value1" name="value1" value="dog">
+                        <label for="value1">Dog</label><br>
+                        <input type="checkbox" id="value2" name="value2" value="cat">
+                        <label for="value2">Cat</label><br>
+                        <input type="checkbox" id="value3" name="value3" value="children">
+                        <label for="value3">Children</label><br>
+                        <br>
+                        <input type="submit">
+                        <input type="reset" value="Clear">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

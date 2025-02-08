@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/pets.css">
+  <title>Search Results</title>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h2>Search Results</h2>
+    <% if (matches.length > 0) { %>
+      <div class="card-container">
+        <% matches.forEach(match => { %>
+          <div class="card">
+            <% if (match.imageExists) { %>
+              <img src="/images/<%= match.breed.toLowerCase() %>Browse.jpg" alt="<%= match.breed %>" style="width:100%">
+            <% } %>
+            <div style="padding: 2px 16px; text-align: center;" class="info">
+              <h3><b><%= match.breed.charAt(0).toUpperCase() + match.breed.slice(1) %></b></h3>
+              <p><u>Breed</u>: <%= match.breed.charAt(0).toUpperCase() + match.breed.slice(1) %></p>
+              <p><u>Gender</u>: <%= match.gender %></p>
+              <p><u>Age</u>: <%= match.age %></p>
+              <p>Gets along with: <%= match.getsAlongWith.join(', ') %></p>
+              <button type="button">I'm interested</button>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>No matches found.</p>
+    <% } %>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>

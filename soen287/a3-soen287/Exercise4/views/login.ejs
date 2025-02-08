@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+    <div class="container side-menu"
+    >
+    <!--Side menu-->
+    <ul>
+        <li><a class="active" href="#home">Home Page</a></li>
+        <!-- <li><a href="/pets">Browse Available Pets</a></li> -->
+        <li><a href="/find">Find a dog/cat</a></li>
+        <li><a href="/dogcare">Dog Care</a></li>
+        <li><a href="/catcare">Cat Care</a></li>
+        <li><a href="/giveaway">Have a pet to give away</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/register">Create an account</a></li>
+      </ul>
+    <!--Content Area-->
+    
+    <div id="home" class="content-area">
+        <h2 style=" margin: 15px; padding: 10px;">Login</h2> 
+        <% if (typeof error !== 'undefined') { %>
+            <p style="color: red;"><%= error %></p>
+          <% } %>
+<div class="container"  style="border:2px solid black; margin: 30px; padding: 10px;">
+    
+    
+    <form action="/login" action="/login" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br> <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" value="Login">
+      <p>Don't have an account? <a href="/register">Create one here</a>.</p>
+    </form>
+    </div>
+    </div>
+</div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
