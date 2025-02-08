@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Exercise Four</title>
+        <style> 
+            button:active {
+                border: 2px solid blue;
+            }
+            
+        </style>
+        </head>
+        <body> 
+            <div style="border: 2px solid black; padding:0 20px 20px 20px;">
+                <h1> Order Books Online</h1>
+                <table> 
+<tr> 
+    <th> Book</th>
+    <th style="float: left;"> Quantity</th>
+    <th> Price</th>
+</tr>
+<tr> 
+    <td style="padding-right: 30px;" id="title1"> Basic Web Programming</td>
+    <td id="quantity1"> 
+        <input type="text" style="width: 30%; float: left;" pattern="[0-9]+">
+    </td>
+    <td id="price1">$19.99</td>
+    
+</tr>
+<tr> 
+    <td id="title2"> intro to PHP</td>
+    <td id="quantity2">
+        <input type="text" style="width: 30%; float: left;" pattern="[0-9]+"></td>
+        <td id="price2">$86.00</td>
+    </tr>
+    <tr>
+        <td id="title3"> Advanced JQuery</td>
+        <td id="quantity3"><input type="text" style="width: 30%; float: left;" pattern="[0-9]+"></td>
+        <td id="price3">$55.00</td>
+    </tr>
+                </table>
+
+<br><br>
+<button type="button" onclick="calculate()">Calculate the order</button>
+
+            </div>
+            <p id="output"></p>
+<script src="exFour.js"></script>
+        </body>
+        </html>

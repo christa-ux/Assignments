@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise Five</title>
+</head>
+<body>
+    <p><strong>User Information:</strong></p>
+    <div id="content"></div>
+    
+    <script>
+        function getUserInfo() {
+            let name, age;
+            let namePattern = /^[a-zA-Z\s\-]+$/;
+            let agePattern = /^\d+$/;
+
+            // Prompting the user for their name (only letters, whitespaces, and dashes allowed)
+            do {
+                name = prompt("What is your full name? (Letters, spaces, and dashes only)");
+                if (!namePattern.test(name)) {
+                    alert("Please enter a valid name. Only letters, spaces, and dashes are allowed.");
+                }
+            } while (!namePattern.test(name));
+
+            // Prompting the user for their age (it should be an integer)
+            do {
+                age = prompt("How old are you? (Must be an integer)");
+                if (!agePattern.test(age)) {
+                    alert("Please enter a valid age. It must be an integer.");
+                }
+            } while (!agePattern.test(age));
+
+            
+            let message = `Hi, my name is ${name} and I’m ${age} years old.`;
+
+
+            document.getElementById("content").innerText = message;
+        }
+        
+        
+        window.onload = getUserInfo;
+    </script>
+</body>
+</html>

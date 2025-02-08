@@ -1,0 +1,140 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/*Header */
+header {
+  border: #b7b992 2px solid;
+  margin: 0 0 10px 0;
+  font-size:30px;
+font-weight: bold;
+justify-content: center;
+padding:5px;
+
+}
+header img {
+  vertical-align: middle;
+}
+header div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.date-time {
+display: block;
+font-size: 20px;
+margin: 0 0 10px 0;
+padding:5px;
+}
+
+/*Footer */
+footer {
+  background-color: #b7b992;
+  text-align: center;
+  padding: 5px;
+  width:100%;
+  
+}
+
+footer a {
+  font-weight: bold;
+ text-decoration: none;
+ color: black;
+}
+header, footer {
+  width: 100%;
+  display: block;
+}
+
+
+/*Side Menu*/
+.side-menu ul {
+  list-style-type: none;
+  margin-bottom: 15px;
+  padding: 0;
+  width: 100px;
+  background-color: #f1f1f1;
+
+ 
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #b7b992;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #D0A577;
+  color: white;
+}
+  /*Content Area*/
+  .container {
+    display: flex;
+    
+  }
+  
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  padding: 15px;
+  margin: 10px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card img {
+  width: 100%;
+  height: 200px; /* Adjust this value to control the height */
+  object-fit: cover; 
+}
+@media (min-width: 1200px) {
+  .card {
+      width: 30%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card {
+      width: 45%;
+  }
+}
+@media (max-width: 767px) {
+  .card {
+      width: 90%;
+  }
+}
+.information {
+  background-color: #CDA67A;
+  border-left: 8px solid #b7b992;
+  padding: 10px;
+  margin: 20px;
+  width: calc(100% - 72px); /* Adjust width to account for padding and border */
+  box-sizing: border-box;
+}
+
+
+button {
+  background-color: #D0A577; 
+  color: white;
+  border: none; 
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 4px; 
+}
+
+.other {background-color: #e7e7e7; color: black;} 
+

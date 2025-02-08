@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Exercise Two</title>
+        </head>
+        <body>
+            <div style="border:2px solid black; padding-left:15px;">
+            <h1> Javascript Array</h1>
+            <h3>Print the elements of an array using toString()</h3>
+            <p id="toString"></p>
+            <h3> Print the elements of an array using join()</h3>
+            <p id="join"></p>
+            <h3> Print the elements of an array in the format of index:value</h3>
+            <p id="indexValue"></p>
+            <br>
+            <p>Figure 3: Print the elements in the array of Strings</p>
+        </div>
+            <script>
+                const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                
+                //toString()
+                document.getElementById('toString').innerText = fruits.toString();
+                
+                //join()
+                document.getElementById('join').innerText = fruits.join("&");
+
+                //index-value
+                let indexValueString = ''; //initially we have an empty string
+        fruits.forEach((fruit, index) => {  
+            indexValueString += `${index}: ${fruit}\n`;
+        });
+        document.getElementById('indexValue').innerText = indexValueString;
+        
+        //for loop that fills the empty string with the index of each element, 
+        //followed by the element itself, and then going to the next line
+        
+        
+            </script>
+        </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Exercise Six</title>
+        <style>
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        </style>
+        </head>
+
+        <body> 
+            <h2> Gravitational waves have been detected for the first time</h2>
+            <img id="slideshow" src="q6Imagea.jpg" alt="Gravitational waves image">
+    <br>
+    <a href="#" onclick="prevImage()">Previous</a> |
+    <a href="#" onclick="nextImage()">Next</a>
+            <p> 
+                The first direct direction of gravitational waves is without a doubt one of the 
+                most remarkable breakthroughs of our time. The Advanced LIGO laboratories in the US states of Washington and
+                Louisiana have traced the warping of space from the merger of two black holes about 1.3 
+                billion light years. 
+                </p>
+                <script>
+                    const images = [
+                        "q6Imagea.jpg",
+                        "q6Imageb.jpg",
+                        "q6Imagec.jpg",
+                        "q6Imaged.jpg"
+                    ];
+                    let currentImageIndex = 0;
+            
+                    function showImage(index) {
+                        const imgElement = document.getElementById('slideshow');
+                        imgElement.src = images[index];
+                    }
+            
+                    function nextImage() {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        showImage(currentImageIndex);
+                    }
+            
+                    function prevImage() {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        showImage(currentImageIndex);
+                    }
+                </script>
+            </body>
+            </html>
