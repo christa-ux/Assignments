@@ -1,0 +1,5 @@
+﻿  OpenGlIntro.cpp
+C:\Users\anabe\Desktop\projects\OpenGlIntro\OpenGlIntro.cpp(108,30): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\anabe\Desktop\projects\OpenGlIntro\OpenGlIntro.cpp(108,24): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\anabe\Desktop\projects\OpenGlIntro\OpenGlIntro.cpp(108,18): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+  OpenGlIntro.vcxproj -> C:\Users\anabe\Desktop\projects\OpenGlIntro\x64\Debug\OpenGlIntro.exe
